@@ -1,7 +1,7 @@
 # About
-This adds MQTT features to Ubiquiti Networks mPi devices.
+This adds MQTT features to Ubiquiti Networks mFi devices.
 This is version 3, which aims to comply with [homie MQTT convention](https://github.com/marvinroger/homie). The implementation of the convention is not complete yet.
-It´s forked from magcode/mpower-tools, and we just add mPort compatibility and auto detect port configuration features.
+It´s forked from excelent work of magcode/mpower-tools, and we just add mPort compatibility and auto detect port configuration features.
 
 # Warning
 Use at your own risk!
