@@ -1,12 +1,13 @@
 # About
-This adds MQTT features to Ubiquiti Networks mPower devices.
-This is version 2, which aims to comply with [homie MQTT convention](https://github.com/marvinroger/homie). The implementation of the convention is not complete yet.
+This adds MQTT features to Ubiquiti Networks mPi devices.
+This is version 3, which aims to comply with [homie MQTT convention](https://github.com/marvinroger/homie). The implementation of the convention is not complete yet.
+It´s forked from magcode/mpower-tools, and we just add mPort compatibility and auto detect port configuration features.
 
 # Warning
 Use at your own risk!
 
 # Installation
-Use a SSH client and connect to your mPower device.
+Use a SSH client and connect to your mFi device.
 Enter the following commands
 
 ```
@@ -99,6 +100,9 @@ The tool logs into standard messages log.
 ```
 tail -f /var/log/messages
 ```
+# Integrating into Home Assistant
+
+This is an example how to define Home Assistant / Hassio.io items:
 
 # Integrating into openHAB
 
