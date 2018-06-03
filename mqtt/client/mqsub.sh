@@ -61,3 +61,4 @@ $BIN_PATH/mosquitto_sub -I $clientID -h $mqtthost $auth -v -t $topic/+/+/set | w
         echo 5 > $tempfile
     fi
 
+done
