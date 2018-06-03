@@ -54,6 +54,10 @@ power=1
 energy=1
 lock=1
 voltage=0
+mFiTHS=1
+mFiCS=1
+mFiMSW=1
+mFiDS=1
 ```
 
 # Published data
