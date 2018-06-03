@@ -41,7 +41,7 @@ The script also starts automatically approx 3 minutes after booting the device (
 # Configuration
 ## MQTT
 Edit the file `/var/etc/persistent/mqtt/client/mqtt.cfg` and configure your server, topic and refresh time. Setting topic, refresh, mqttusername and mqttpassword is not mandatory. Defaults are 
-`topic=homie/[name of the mpower]` and `refresh=60` seconds
+`topic=homie/[name of the mPower/mPort]` and `refresh=60` seconds
 
 ```
 mqtthost=192.168.0.1
