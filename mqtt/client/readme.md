@@ -162,7 +162,7 @@ switch:
     payload_on: "1"
     payload_off: "0"
     retain: true  
-
+```
 # Integrating into openHAB (Not Tested)
 
 This is an example how to define openHAB items:
