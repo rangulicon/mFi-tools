@@ -1,7 +1,7 @@
 #!/bin/sh
 
 log() {
-	logger -s -t "mqtt" "$*"
+        logger -s -t "mqtt" "$*"
 }
 
 export LD_LIBRARY_PATH=/var/etc/persistent/mqtt
@@ -40,6 +40,9 @@ export mqtthost
 export refresh
 export tmpfile
 export version
+export port1
+export port2
+export port3
 
 log "starting pub and sub scripts"
 $BIN_PATH/client/mqpub.sh &
