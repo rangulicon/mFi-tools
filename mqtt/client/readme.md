@@ -40,6 +40,9 @@ mqtthost=192.168.0.1
 #topic=my/topic
 #mqttusername=myMqttUserName
 #mqttpassword=myMqttPassword
+port1=mFiTHS
+port2=mFiCS
+port3=
 ```
 ## Configuring transmitted node attributes
 You can suppress certain attributes (such as voltage) by editing the file `mpower-pub.cfg`. Set value to `0` if you dont need the data.
