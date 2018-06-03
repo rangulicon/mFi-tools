@@ -3,6 +3,11 @@ This adds MQTT features to Ubiquiti Networks mFi devices.
 This is version 3, which aims to comply with [homie MQTT convention](https://github.com/marvinroger/homie). The implementation of the convention is not complete yet.
 It´s forked from excelent work of magcode/mpower-tools, and we just add mPort compatibility and auto detect port configuration features.
 
+# Compatible Devices
+- mPower Mini and mPower Outlet 3 Ports
+
+- mFiTHS, mFiCS, mFiMSW and mFiDS
+
 # Warning
 Use at your own risk!
 
@@ -60,7 +65,7 @@ mFiMSW=1
 mFiDS=1
 ```
 
-# Published data
+# mPower Published data
 
 The mPower device will publish messages every 60 seconds to different topics. Example:
 
@@ -97,6 +102,32 @@ homie/mpower-1/port2/lock/$settable=true
 homie/mpower-1/port3/lock/$settable=true
 ```
 
+# mPort Published data
+
+The mPort device will publish messages every 60 seconds to different topics. Example:
+
+```
+homie/mport-1/port1/mFiTHS 28.610001
+homie/mport-2/port2/mFiCS
+homie/mport-3/port3/mFiMSW
+
+or
+
+homie/mport-3/port1/mFiMSW
+homie/mport-3/port1/mFiDS
+```
+
+Additionally - currently only at the start of the script - the device will also report:
+
+```
+homie/mport-1/$homie 3.0.0
+homie/mport-1/$name mport-1
+homie/mport-1/$fw/version MF.v2.1.12-mq-0.2
+homie/mport-1/$fw/name mFi MQTT
+homie/mport-1/$localip (null)
+homie/mport-1/$nodes port1,port2,port3
+homie/mmport-1/$stats/uptime 5441.57
+
 # Control sockets via MQTT
 You can control the sockets by sending `0` or `1` to the topic `<topic chosen above>/port<number of socket>/relay/set`
 
@@ -111,7 +142,28 @@ tail -f /var/log/messages
 
 This is an example how to define Home Assistant / Hassio.io items:
 
-# Integrating into openHAB
+# mPort
+
+sensor:
+  - platform: mqtt
+    name: "Temperature"
+    state_topic: "homie/mport-1/port1/mFiTHS"
+    unit_of_measurement: "Celcius"
+    icon: mdi:temperature-celsius
+    value_template: "{{ value | round(2) }}"
+
+# mPower
+
+switch:
+  - platform: mqtt
+    name: "mPower-1"
+    state_topic: "homie/mpower-1/port1/relay"
+    command_topic: "homie/mpower-1/port1/relay/set"
+    payload_on: "1"
+    payload_off: "0"
+    retain: true  
+
+# Integrating into openHAB (Not Tested)
 
 This is an example how to define openHAB items:
 
