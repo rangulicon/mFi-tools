@@ -5,7 +5,7 @@ This is version 3.1, which aims to comply with [homie MQTT convention](https://g
 
 The implementation of the convention is not complete yet.
 
-It´s forked from excelent work of maletazul/mFi-tools and magcode/mpower-tools, and I added the missing current property from the mPower and added support for the mPower Mini.
+It´s forked from excelent work of maletazul/mFi-tools and magcode/mpower-tools, and I added the missing current property from the mPower and added fixed support for the mPower Mini.
 
 # Compatible Devices
 - mPower Mini and mPower Outlet 3 Ports
