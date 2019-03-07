@@ -35,6 +35,11 @@ then
     properties=$properties,voltage
 fi
 
+if [ $current -eq 1 ]
+then
+    properties=$properties,current
+fi
+
 if [ $lock -eq 1 ]
 then
     properties=$properties,lock

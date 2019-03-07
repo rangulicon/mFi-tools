@@ -2,9 +2,9 @@
 
 LOCALDIR="/var/etc/persistent/mqtt"
 LOCALSCRIPTDIR=$LOCALDIR/client
-BASEURL="https://raw.githubusercontent.com/maletazul/mFi-tools/master/mqtt"
+BASEURL="https://raw.githubusercontent.com/mp2526/mFi-tools/master/mqtt"
 
-echo "Installing mFi tools MQTT v3 ..."
+echo "Installing mFi tools MQTT v3.1 ..."
 wget --no-check-certificate -q $BASEURL/libmosquitto.so.1?raw=true -O $LOCALDIR/libmosquitto.so.1
 wget --no-check-certificate -q $BASEURL/mosquitto_pub?raw=true -O $LOCALDIR/mosquitto_pub
 wget --no-check-certificate -q $BASEURL/mosquitto_sub?raw=true -O $LOCALDIR/mosquitto_sub

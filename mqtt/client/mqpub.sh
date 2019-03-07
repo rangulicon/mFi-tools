@@ -32,6 +32,7 @@ export relay=$relay
 export power=$power
 export energy=$energy
 export voltage=$voltage
+export current=$current
 export lock=$lock
 export mFiTHS=$mFiTHS
 export mFiCS=$mFiCS
@@ -146,7 +147,7 @@ then
 
     if [ $power -eq 1 ]
     then
-        # current power
+        # power
         for i in $(seq $PORTS)
         do
             power_val=`cat /proc/power/active_pwr$((i))`
@@ -169,12 +170,23 @@ then
 
     if [ $voltage -eq 1 ]
     then
-        # energy consumption
+        # voltage
         for i in $(seq $PORTS)
         do
             voltage_val=`cat /proc/power/v_rms$((i))`
             voltage_val=`printf "%.1f" $voltage_val`
             $PUBBIN -h $mqtthost $auth -t $topic/port$i/voltage -m "$voltage_val" -r
+        done
+    fi
+
+    if [ $current -eq 1 ]
+    then
+        # current
+        for i in $(seq $PORTS)
+        do
+            current_val=`cat /proc/power/i_rms$((i))`
+            current_val=`printf "%.1f" $current_val`
+            $PUBBIN -h $mqtthost $auth -t $topic/port$i/current -m "$current_val" -r
         done
     fi
 
