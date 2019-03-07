@@ -14,7 +14,7 @@ export mFiType=`cat /etc/board.inc | grep board_name | sed -e 's/.*="\(.*\)";/\1
 log "mFi Type: $mFiType."
 
 # identify type of mpower
-if [ $mFiType == "mPower" ] || [ $mFiType == "mPower Mini" ]
+if [ "$mFiType" == "mPower" ] || [ "$mFiType" == "mPower Mini" ]
 then
     export PORTS=`cat /etc/board.inc | grep feature_power | sed -e 's/.*\([0-9]\+\);/\1/'`
 else
@@ -68,10 +68,10 @@ do
                 fi
         fi
 
-if [ $mFiType != "mPower" ] && [ $mFiType != "mPower Mini" ]
+if [ "$mFiType" != "mPower" ] && [ "$mFiType" != "mPower Mini" ]
 then
 
-
+    log "Gathering mPort values."
     if [ $mFiTHS -eq 1 ] && [ "$port1" == "mFiTHS" ] || [ "$port2" == "mFiTHS" ]
     then
         #temperature
@@ -127,10 +127,10 @@ then
 
 fi
 
-if [ $mFiType == "mPower" ] || [ $mFiType == "mPower Mini" ]
+if [ "$mFiType" == "mPower" ] || [ "$mFiType" == "mPower Mini" ]
 then
 
-
+    log "Gathering mPower values."
     if [ $relay -eq 1 ]
     then
         # relay state
