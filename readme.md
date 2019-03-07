@@ -21,7 +21,7 @@ Enter the following commands
 
 ```
 mkdir /var/etc/persistent/mqtt
-wget --no-check-certificate -q https://raw.githubusercontent.com/maletazul/mFi-tools/master/mqtt/client/install-client.sh -O /var/etc/persistent/mqtt/install-client.sh;chmod 755 /var/etc/persistent/mqtt/install-client.sh;/var/etc/persistent/mqtt/install-client.sh
+wget --no-check-certificate -q https://raw.githubusercontent.com/mp2526/mFi-tools/master/mqtt/client/install-client.sh -O /var/etc/persistent/mqtt/install-client.sh;chmod 755 /var/etc/persistent/mqtt/install-client.sh;/var/etc/persistent/mqtt/install-client.sh
 
 save
 reboot
