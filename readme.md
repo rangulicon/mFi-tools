@@ -1,11 +1,11 @@
 # About
 This adds MQTT features to Ubiquiti Networks mFi devices.
 
-This is version 3, which aims to comply with [homie MQTT convention](https://github.com/marvinroger/homie). 
+This is version 3.1, which aims to comply with [homie MQTT convention](https://github.com/marvinroger/homie).
 
 The implementation of the convention is not complete yet.
 
-It´s forked from excelent work of magcode/mpower-tools, and we just add mPort compatibility and auto detect port configuration features.
+It´s forked from excelent work of maletazul/mFi-tools and magcode/mpower-tools, and I added the missing current property from the mPower and added support for the mPower Mini.
 
 # Compatible Devices
 - mPower Mini and mPower Outlet 3 Ports
@@ -63,6 +63,7 @@ power=1
 energy=1
 lock=1
 voltage=0
+current=1
 mFiTHS=1
 mFiCS=1
 mFiMSW=1
@@ -86,6 +87,9 @@ homie/mpower-1/port3/energy=8
 homie/mpower-1/port1/voltage=0.0
 homie/mpower-1/port2/voltage=234.9
 homie/mpower-1/port3/voltage=0.0
+homie/mpower-1/port1/current=0.0
+homie/mpower-1/port2/current=4.6
+homie/mpower-1/port3/current=0.0
 ```
 
 Additionally - currently only at the start of the script - the device will also report:
@@ -190,6 +194,6 @@ MQTT client Provides an MQTT client.
 
 Setup examples for Home Assistant/Hassio.io and openHAB
 
-Forked from https://github.com/magcode/mpower-tools
+Forked from https://github.com/maletazul/mFi-tools
 
-New v3 features addon´s developed by keys, ddvs1 and nrocha.
+which in turn is forked from https://github.com/magcode/mpower-tools
