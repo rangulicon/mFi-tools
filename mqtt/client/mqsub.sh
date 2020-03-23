@@ -52,6 +52,14 @@ $BIN_PATH/mosquitto_sub -I $clientID -h $mqtthost $auth -v -t $topic/+/+/set | w
         'echo $val > /dev/input1$port'
         echo 5 > $tempfile
     fi
+	
+    if [ "$property" == "mFiMSC" ]
+    then
+
+        log "MQTT request received. $property control for port" $port "with value" $inputVal
+        'echo $val > /dev/input1$port'
+        echo 5 > $tempfile
+    fi	
 
     if [ "$property" == "mFiDS" ]
     then

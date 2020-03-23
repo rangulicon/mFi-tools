@@ -37,6 +37,7 @@ export lock=$lock
 export mFiTHS=$mFiTHS
 export mFiCS=$mFiCS
 export mFiMSW=$mFiMSW
+export mFiMSC=$mFiMSC
 export mFiDS=$mFiDS
 
 $BIN_PATH/client/mqpub-static.sh
@@ -96,7 +97,6 @@ then
         fi
     fi
 
-
     if [ $mFiMSW -eq 1 ] && [ "$port1" == "mFiMSW" ] || [ "$port2" == "mFiMSW" ]
     then
         #sensor movimento
@@ -109,6 +109,17 @@ then
         fi
     fi
 
+    if [ $mFiMSC -eq 1 ] && [ "$port1" == "mFiMSC" ] || [ "$port2" == "mFiMSC" ]
+    then
+        #sensor movimento
+        if [ "$port1" == "mFiMSC" ];then
+            mFiMSC_val=`cat /dev/input21`
+            $PUBBIN -h $mqtthost $auth -t $topic/port1/mFiMSC -m "$mFiMSC_val" -r
+        elif [ "$port2" == "mFiMSC" ];then
+            mFiMSC_val=`cat /dev/input22`
+            $PUBBIN -h $mqtthost $auth -t $topic/port2/mFiMSC -m "$mFiMSC_val" -r
+        fi
+    fi
 
     if [ $mFiDS -eq 1 ] && [ "$port1" == "mFiDS" ] || [ "$port2" == "mFiDS" ] || [ "$port3" == "mFiDS" ]
     then

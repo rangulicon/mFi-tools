@@ -60,6 +60,11 @@ then
     properties=$properties,mFiMSW
 fi
 
+if [ $mFiMSC -eq 1 ]
+then
+    properties=$properties,mFiMSC
+fi
+
 if [ $mFiDS -eq 1 ]
 then
     properties=$properties,mFiDS

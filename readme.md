@@ -1,16 +1,16 @@
 # About
 This adds MQTT features to Ubiquiti Networks mFi devices.
 
-This is version 3.1, which aims to comply with [homie MQTT convention](https://github.com/marvinroger/homie).
+This is version 3.2, which aims to comply with [homie MQTT convention](https://github.com/marvinroger/homie).
 
 The implementation of the convention is not complete yet.
 
-It´s forked from excelent work of maletazul/mFi-tools and magcode/mpower-tools, and I added the missing current property from the mPower and added fixed support for the mPower Mini.
+It´s forked from excelent work of mp2526/mFi-tools, maletazul/mFi-tools and magcode/mpower-tools, I've added support for the mFiMSC
 
 # Compatible Devices
-- mPower Mini and mPower Outlet 3 Ports
+- mPower Mini and mPower Outlet 3 or 8 Ports
 
-- mFiTHS, mFiCS, mFiMSW and mFiDS
+- mFiTHS, mFiCS, mFiMSW, mFiMSC and mFiDS
 
 # Warning
 Use at your own risk!
@@ -21,7 +21,7 @@ Enter the following commands
 
 ```
 mkdir /var/etc/persistent/mqtt
-wget --no-check-certificate -q https://raw.githubusercontent.com/mp2526/mFi-tools/master/mqtt/client/install-client.sh -O /var/etc/persistent/mqtt/install-client.sh;chmod 755 /var/etc/persistent/mqtt/install-client.sh;/var/etc/persistent/mqtt/install-client.sh
+wget --no-check-certificate -q https://raw.githubusercontent.com/rangulicon/mFi-tools/master/mqtt/client/install-client.sh -O /var/etc/persistent/mqtt/install-client.sh;chmod 755 /var/etc/persistent/mqtt/install-client.sh;/var/etc/persistent/mqtt/install-client.sh
 
 save
 reboot
@@ -44,7 +44,7 @@ Edit the file `/var/etc/persistent/mqtt/client/mqtt.cfg` and configure your serv
 `topic=homie/[name of the mpower]` and `refresh=60` seconds
 
 ```
-mqtthost=192.168.0.1
+mqtthost=192.168.1.4
 #refresh=60
 #topic=my/topic
 #mqttusername=myMqttUserName
@@ -67,6 +67,7 @@ current=1
 mFiTHS=1
 mFiCS=1
 mFiMSW=1
+mFiMSC=1
 mFiDS=1
 ```
 
