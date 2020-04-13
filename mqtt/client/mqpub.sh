@@ -14,10 +14,12 @@ export mFiType=`cat /etc/board.inc | grep board_name | sed -e 's/.*="\(.*\)";/\1
 log "mFi Type: $mFiType."
 
 # identify type of mpower
-if [ "$mFiType" == "mPower" ] || [ "$mFiType" == "mPower Mini" ]
+if [ "$mFiType" == "mPower" ] || [ "$mFiType" == "mPower Mini" ] || [ "$mFiType" == "mPower Pro" ]
 then
     export PORTS=`cat /etc/board.inc | grep feature_power | sed -e 's/.*\([0-9]\+\);/\1/'`
 else
+    # Don't get confused by the 3 ports - mPower also has three ports, but these are not power ports and
+    # it's not for mPower
     export PORTS=3
 fi
 
@@ -69,7 +71,7 @@ do
                 fi
         fi
 
-if [ "$mFiType" != "mPower" ] && [ "$mFiType" != "mPower Mini" ]
+if [ "$mFiType" != "mPower" ] && [ "$mFiType" != "mPower Mini" ] && [ "$mFiType" != "mPower Pro" ]
 then
 
     log "Gathering mPort values."
@@ -138,7 +140,7 @@ then
 
 fi
 
-if [ "$mFiType" == "mPower" ] || [ "$mFiType" == "mPower Mini" ]
+if [ "$mFiType" == "mPower" ] || [ "$mFiType" == "mPower Mini" ] || [ "$mFiType" == "mPower Pro" ]
 then
 
     log "Gathering mPower values."
