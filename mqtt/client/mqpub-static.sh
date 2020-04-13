@@ -71,7 +71,7 @@ then
 fi
 
 
-if [ $mFiType == "mPower" ]
+if [ "$mFiType" == "mPower" ] || [ "$mFiType" == "mPower Mini" ] || [ "$mFiType" == "mPower Pro" ]
 then
 
 # node infos
